@@ -1,0 +1,80 @@
+			   nsh Manual Page
+			   ================
+
+NAME 
+	nsh - A simple  bourne again shell(bash) like shell
+
+SYNOPSIS
+	nsh  [arg]
+	nsh
+
+DESCRIPTION
+ 	nsh is a minimalistic shell supporting the limited features  of bash shell.  nsh allows user to do basic commands, multiple pipes, input/ouptut redirection.
+
+
+BAISC SINGLE COMMAND
+
+    	some example of basic commands without pipeline and I/O REDIRECION:
+
+    	 
+    	?   ls -l -a
+    	?  mv file1 file2
+    	?  cp file1 file2
+    	?  rm file1 file2 .....
+    	? grep  string filename 
+    	 .
+    	 .
+    	 .
+
+
+I/O REDIRECTIONS
+
+		nsh supports input output redirection along with the append mode.
+
+		> : output redirection
+		< : input redirection
+		>> : append to a file
+
+		some example :
+		?  cat < infile
+		?  cat infile 
+		? echo today's day is > newfile
+		? date >> newfile
+
+
+PIPES
+		nsh also supports inter process communication using pipeline.  Output of 1 command can serve as the input for another command. nsh supports multiple pipeline also.
+		Commands listed in the following are some examples of what nsh supports:
+
+
+		?   who | fgrep -i .edu > foo
+		? ls -l | sort -k 5nr
+		? ls -l | grep somestring | wc -l > outfile
+		.
+		.
+		..
+
+
+CD
+	  nsh also supports the built in command cd which allows users to change directories
+
+	  example:
+	  ? mkdir temp
+	  ? cd temp
+	  ? cd ..
+
+
+
+CLEAR
+		users can issue clear command to clear the screen
+
+
+Bug in nsh:
+	  
+	   nsh has a small bug
+	   >> operator does not append when there is only one command, but works fine on multiple pipe
+
+End of manual
+
+
+
